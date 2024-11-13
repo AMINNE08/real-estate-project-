@@ -5,6 +5,8 @@ import Navbar from "./components/navbar/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
 import PropertyComponent from "./components/Property/PropertyComponent";
 import Footer from "./components/footer/Footer";
+import ContactPage from "./components/Contact/ContactPage";
+import ServicesCarousel2 from "./components/servicesComponont/ServicesCarousel2";
 
 function App() {
   const [showLoader, setShowLoader] = useState(true);
@@ -43,8 +45,10 @@ function App() {
         <div className="homepage">
           <Navbar />
           <HeroSection />
-          {/* <RecentProjects></RecentProjects> */}
+          <div className="serviceshide"><h1>Our Services</h1></div>
+         <ServicesCarousel2/>
           <PropertyComponent></PropertyComponent>
+          <ContactPage></ContactPage>
           <Footer/>
 
         </div>

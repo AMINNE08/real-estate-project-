@@ -6,8 +6,15 @@
   border-top: 1px solid #e5e5e5;
 }
 
-.footer-left, .footer-right {
+.footer-left {
   flex: 1;
+  margin-left: 62px;
+  padding: 13px;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 100px;
 }
 
 .footer-logo {
@@ -16,7 +23,7 @@
 
 .footer-description {
   margin: 10px 0;
-  font-size: 16px;
+  font-size: 17px;
   color: #333;
 }
 
@@ -30,28 +37,35 @@
 }
 
 .footer-right {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  margin-top: 26px;
 }
 
 /* Border container styling */
 .footer-border {
-  border: 1px solid #d07540;
-  border-radius: 15px 15px 0 0;
+  border: 2px solid #d07540;
+  border-radius: 75px 0 0 0;
   padding: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 10px;
+  justify-content: space-around;
+  border-right: none;
+  border-bottom: none;
+  padding-top: 30px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-right: 0;
 }
 
-.footer-contact h3, .footer-social h3 {
+.footer-contact h3,
+.footer-social h3 {
   font-size: 14px;
   color: #d07540;
 }
 
-.footer-contact p, .footer-social .icon {
+.footer-contact p,
+.footer-social .icon {
   font-size: 14px;
   color: #333;
   margin: 5px 0;
@@ -81,4 +95,10 @@
   font-size: 12px;
   color: #999;
   margin-top: auto;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
 }
