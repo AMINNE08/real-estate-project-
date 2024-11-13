@@ -1,0 +1,84 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.footer-left, .footer-right {
+  flex: 1;
+}
+
+.footer-logo {
+  max-width: 100px;
+}
+
+.footer-description {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.footer-button {
+  background-color: #d07540;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Border container styling */
+.footer-border {
+  border: 1px solid #d07540;
+  border-radius: 15px 15px 0 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.footer-contact h3, .footer-social h3 {
+  font-size: 14px;
+  color: #d07540;
+}
+
+.footer-contact p, .footer-social .icon {
+  font-size: 14px;
+  color: #333;
+  margin: 5px 0;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  display: inline-block;
+  padding: 8px;
+  border: 1px solid #d07540;
+  border-radius: 50%;
+  color: #d07540;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer-social .icon:hover {
+  background-color: #d07540;
+  color: #fff;
+}
+
+.footer-copyright {
+  font-size: 12px;
+  color: #999;
+  margin-top: auto;
+}

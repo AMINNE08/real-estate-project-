@@ -1,0 +1,94 @@
+.propertyComponent {
+    text-align: center;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.propertyComponent h1 {
+       margin-bottom: 3rem;
+       font-weight: bold;
+       text-transform: uppercase;
+}
+
+.content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.textSection {
+    flex: 1;
+    text-align: left;
+}
+
+.textSection h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.textSection p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.bookNow {
+    padding: 0.5rem 1.5rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.readMore {
+    padding: 0.5rem 1.5rem;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.imageSection {
+    flex: 1;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 0 150px 0px 150PX;
+}
+
+.imageSection img {
+    border-radius: 8px;
+    max-height: 600px;
+    max-width: 600PX;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+}
+
+.statItem {
+    text-align: center;
+}
+
+.number {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.label {
+    display: block;
+    color: #666;
+}

@@ -1,0 +1,53 @@
+/* Loader.css */
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f1f1ff;
+    margin: 0;
+}
+
+.loadermsg {
+    position: relative;
+    font-size: 14vh;
+    color: #4e4a8a;
+    -webkit-text-stroke: 0.3vw #8c47ff;
+    text-transform: uppercase;
+}
+
+.loadermsg::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #a9b3ff;
+    -webkit-text-stroke: 0vw #8c47ff;
+    border-right: 2px solid #a9b3ff;
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+    0%, 10%, 100% {
+        width: 0;
+    }
+    70%, 90% {
+        width: 100%;
+    }
+}
+
+/* Optional: Add a fade-out transition for smoother transition to homepage */
+.loader {
+    animation: fadeOut 0.5s ease-out forwards;
+    animation-delay: 5.5s;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
