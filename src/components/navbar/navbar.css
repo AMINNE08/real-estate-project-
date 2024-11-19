@@ -144,17 +144,59 @@
   cursor: pointer;
   font-size: 19px;
   padding: 14px 34px;
-  border-color: #D4AF37;
   margin-left: 8vh;
+  border-color: #D4AF37;
+  background: transparent;
 }
 
 .logbutton:hover {
-  color: white;
-  background-color: #000;
+
+  color: #D4AF37;
+
 }
 .logbutton:active {
 	position:relative;
 	top:1px;
 }
 
-     
+/* Logo container styles */
+.logo-container {
+  position: relative;
+  display: inline-block;
+  width: 200px; /* Adjust to match the size of your logo */
+}
+
+.logoimage {
+  display: block;
+  margin-left: 40px;
+}
+
+/* Keys image */
+.keys {
+  position: absolute;
+    top: 1%;
+    left: -3%;
+    width: 48px;
+    height: auto;
+    transform-origin: top center;
+}
+
+/* Swing animation */
+.logo-container:hover .keys {
+  animation: swing-keys 2s ease-in-out infinite;
+}
+
+@keyframes swing-keys {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

@@ -50,7 +50,6 @@ function App() {
           <PropertyComponent></PropertyComponent>
           <ContactPage></ContactPage>
           <Footer/>
-
         </div>
       )}
     </div>
