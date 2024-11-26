@@ -7,24 +7,25 @@ import PropertyComponent from "./components/Property/PropertyComponent";
 import Footer from "./components/footer/Footer";
 import ContactPage from "./components/Contact/ContactPage";
 import ServicesCarousel2 from "./components/servicesComponont/ServicesCarousel2";
+import logokeys from "./components/navbar/logokeys.png";
 
 function App() {
   const [showLoader, setShowLoader] = useState(true);
   const [showWelcome, setShowWelcome] = useState(false);
 
   useEffect(() => {
-    // First, show the loader for 6 seconds
+    // Show the loader for 3 seconds
     const loaderTimer = setTimeout(() => {
       setShowLoader(false);
       setShowWelcome(true);
-    }, 6000);
+    }, 3000); // Matches the loader's animation duration
 
-    // After showing the welcome message, transition to the homepage
+    // Show the welcome message for 2 seconds, then show the main content
     const welcomeTimer = setTimeout(() => {
       setShowWelcome(false);
-    }, 8000); // Adjust the delay as needed (e.g., 2 seconds for the welcome message)
+    }, 5000); // 2 seconds after the loader ends
 
-    // Clean up timers on component unmount
+    // Clean up timers
     return () => {
       clearTimeout(loaderTimer);
       clearTimeout(welcomeTimer);
@@ -37,7 +38,13 @@ function App() {
       {!showLoader && showWelcome && (
         <div className="cont">
           <div className="welcome-message">
-            <h1>Welcome to YAQIN</h1>
+            <h1>Welcome</h1>
+            <img
+              className="logoanimation"
+              src={logokeys}
+              alt=""
+              style={{ height: "auto", width: "auto" }}
+            />
           </div>
         </div>
       )}
@@ -45,11 +52,13 @@ function App() {
         <div className="homepage">
           <Navbar />
           <HeroSection />
-          <div className="serviceshide"><h1>Our Services</h1></div>
-         <ServicesCarousel2/>
-          <PropertyComponent></PropertyComponent>
-          <ContactPage></ContactPage>
-          <Footer/>
+          <div className="serviceshide">
+            <h1>Our Services</h1>
+          </div>
+          <ServicesCarousel2 />
+          <PropertyComponent />
+          <ContactPage />
+          <Footer />
         </div>
       )}
     </div>

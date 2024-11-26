@@ -1,10 +1,21 @@
+/* App.css */
+
 .welcome-message {
-    font-size: 3em;
+    font-size: 3vw;
     color: #4e4a8a; /* Dark blue from your palette */
-    animation: fadeIn 1s ease forwards, fadeOut 1s ease forwards 2s; /* Fades in and out */
+    animation: fadeIn 1s ease forwards, fadeOut 1s ease forwards 2s; /* Adjusted fadeOut start time */
     text-align: center;
+    transition: opacity 1s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+.welcome-message img {
+    width: 20%; 
+    height: auto;
+}
 
 .cont {
     display: flex;
@@ -37,5 +48,64 @@
     justify-content: center;
     font-size: 15px;
     margin-bottom: 20px;
+}
 
+/* Swinging animation */
+@keyframes swing-keys {
+    0% {
+        transform: rotate(0deg); /* Neutral position */
+    }
+    25% {
+        transform: rotate(10deg); /* Swing to the right */
+    }
+    50% {
+        transform: rotate(-10deg); /* Swing to the left */
+    }
+    75% {
+        transform: rotate(5deg); /* Back to the right */
+    }
+    100% {
+        transform: rotate(0deg); /* Back to neutral */
+    }
+}
+
+/* Apply swing animation to the logo */
+.logoanimation {
+    animation: swing-keys 2s ease-in-out infinite;
+    transform-origin: top center; /* Swing from the top center of the element */
+    max-width: 100%;
+}
+
+/* Adjustments for tablets */
+@media (max-width: 768px) {
+    .welcome-message {
+        font-size: 5vw; /* Slightly larger text for tablets */
+    }
+
+    .welcome-message img {
+        width: 30%; /* Adjust logo size for tablets */
+    }
+}
+
+/* Adjustments for smaller phones */
+@media (max-width: 480px) {
+    .welcome-message {
+        font-size: 6vw; /* Larger text for small screens */
+    }
+
+    .welcome-message img {
+        width: 40%; /* Adjust logo size for mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .logoanimation {
+        width: 30%; /* Adjust for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .logoanimation {
+        width: 50%; /* Adjust for mobile devices */
+    }
 }

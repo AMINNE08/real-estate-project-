@@ -2,9 +2,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import './ServicesCarousel.css';
-import buy from '../servicesComponont/buy.png'
-import rent from '../servicesComponont/rent.png'
-import sell from '../servicesComponont/sell.png'
+import buy from '../servicesComponont/buy.webp'
+import rent from '../servicesComponont/rent.webp'
+import sell from '../servicesComponont/sell.webp'
 
 const services = [
   { title: 'Buy', image:buy , description: 'Find your dream home to buy.' },

@@ -8,8 +8,6 @@
  
 }
 
-
-
 .header {
   position: sticky;
   top: 0;
@@ -63,7 +61,7 @@
   text-decoration: none;
   margin-left: 8px;
   transition: 0.3s ease;
-  position: relative; /* Ensure the icon can be positioned correctly */
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 2px;
@@ -74,67 +72,17 @@
 }
 
 
-#menu-icon {
-  font-size: 36px;
-  color: #fff;
-  cursor: pointer;
-  display: none;
-}
-/* BREAKPOINTS */
-@media (max-width: 992px) {
-  .header {
-    padding: 1.25rem 4%;
-  }
-}
-@media (max-width: 768px) {
-  #menu-icon {
-    display: block;
-  }
-  .navbar {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 0.5rem 4%;
-    display: none;
-  }
-  .navbar.active {
-    display: block;
-  }
-  .navbar a {
-    display: block;
-    margin: 1.5rem 0;
-  }
-  .nav-bg {
-    position: absolute;
-    top: 79px;
-    left: 0;
-    width: 100%;
-    height: 295px;
-    background: rgba(255, 255, 255, 0.1);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    z-index: 99;
-    display: none;
-  }
-  .nav-bg.active {
-    display: block;
-  }
-}
 
-
-/* Hide icons by default */
 .navbar a .nav-icon {
-  opacity: 0; /* Icons are invisible */
-  visibility: hidden; /* Make icons not take space */
-  transition: opacity 0.3s ease, visibility 0s 0.3s; /* Transition opacity and visibility */
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity 0.3s ease, visibility 0s 0.3s; 
 }
 
-/* Show icons when hovering over the link */
 .navbar a:hover .nav-icon {
-  opacity: 1; /* Make the icon visible */
-  visibility: visible; /* Ensure the icon is rendered */
-  transition: opacity 0.3s ease, visibility 0s 0s; /* Transition visibility immediately */
+  opacity: 1; 
+  visibility: visible; 
+  transition: opacity 0.3s ease, visibility 0s 0s; 
 }
 
 
@@ -150,20 +98,18 @@
 }
 
 .logbutton:hover {
-
-  color: #D4AF37;
-
+  color: #6F2480;
 }
+
 .logbutton:active {
 	position:relative;
 	top:1px;
 }
 
-/* Logo container styles */
 .logo-container {
   position: relative;
   display: inline-block;
-  width: 200px; /* Adjust to match the size of your logo */
+  width: 200px;
 }
 
 .logoimage {
@@ -171,7 +117,6 @@
   margin-left: 40px;
 }
 
-/* Keys image */
 .keys {
   position: absolute;
     top: 1%;
@@ -181,7 +126,6 @@
     transform-origin: top center;
 }
 
-/* Swing animation */
 .logo-container:hover .keys {
   animation: swing-keys 2s ease-in-out infinite;
 }
@@ -199,4 +143,188 @@
   100% {
     transform: rotate(0deg);
   }
+}
+
+ 
+.navbar a:first-child{
+  color: #6F2480; 
+  opacity: 1; 
+  visibility: visible; 
+  transition: opacity 0.3s ease, visibility 0s 0s; 
+
+}
+
+
+#homeelem{
+  color: #6F2480;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0s 0s;
+}
+
+
+@media (max-width: 768px) {
+  
+  .navbar {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100; 
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .navbar.active {
+  display: flex; 
+}
+
+  .navbar a {
+    display: block;
+    margin: 1.5rem 0;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .nav-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.189); 
+    backdrop-filter: blur(10px);
+    z-index: 99; 
+    display: none;
+  }
+  .nav-bg.active {
+    display: block;
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+  }
+
+  .menu-icon {
+    display: block !important;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dropdown-menu {
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .dropdown-menu a {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .dropdown-menu a:hover {
+    background-color: #6F2480;
+    color: #fff;
+  }
+
+  .nav-bg.active {
+    display: block;
+  }
+  .logbutton {
+    display: none;
+      }
+  
+}
+
+
+@media (max-width: 480px) {
+
+  .header {
+    height: auto;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .logo-container {
+    width: 150px;
+  }
+
+  .logbutton {
+display: none;
+  }
+  .navbar .dropdown-menu {
+    display: flex;
+    left: 45%;
+    bottom: 22%;
+}
+}  
+
+.menu-icon {
+  font-size: 36px;
+  color: #6F2480; 
+  cursor: pointer;
+  display: block; 
+  z-index: 101; 
+  display: none;
+}
+
+
+.navbar.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+}
+
+
+
+/* Default (desktop) dropdown menu */
+.dropdown-menu.desktop-dropdown {
+  position: absolute;
+  left: 38%;
+  background-color: #f7f3f0;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 18px;
+  border-radius: 0 23px 0 0;
+}
+
+/* Responsive/mobile dropdown menu */
+.dropdown-menu.responsive-dropdown {
+  position: static;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dropdown-menu.responsive-dropdown a {
+  padding: 10px;
+  margin: 5px 0;
+  text-align: center;
+  border-radius: 5px;
+  background: white;
+  width: 50%;
+  DISPLAY: flex;
+  JUSTIFY-CONTENT: center;
+  align-items: center;
+}
+
+.dropdown-menu.responsive-dropdown a:hover {
+  background-color: #6f2480;
+  color: #fff;
 }
