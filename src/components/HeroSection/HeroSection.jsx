@@ -1,5 +1,5 @@
 import Typewriter from 'typewriter-effect';
-import '../HeroSection/HeroSection.css';
+import '../HeroSection/heroSection.css';
 import heroimag from '../HeroSection/Final.png';
 
 const HeroSection = () => {
