@@ -1,0 +1,107 @@
+.our-services { 
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 40px;
+    flex-wrap: wrap; /* Enables wrapping for smaller screens */
+  }
+  
+  .service-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .service-image {
+    width: 240px;
+    margin-bottom: 20px;
+    height: 203px;
+    border-radius: 0 60px;
+  }
+  
+  .service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .service-card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .service-button {
+    background-color: #6F2480;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .service-button:hover {
+    transform: scale(0.95);
+  }
+  
+  /* Responsive for tablets (768px and below) */
+  @media (max-width: 768px) {
+    .our-services {
+      justify-content: center; /* Center align cards */
+      gap: 15px;
+    }
+  
+    .service-card {
+      max-width: 80%; /* Increase width for better readability */
+    }
+  
+    .service-image {
+        width: 411px;
+        height: 288px;
+    }
+  
+    .service-card h3 {
+      font-size: 1.25rem;
+    }
+  
+    .service-card p {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Responsive for phones (480px and below) */
+  @media (max-width: 480px) {
+    .our-services {
+      flex-direction: column; /* Stack cards vertically */
+      align-items: center;
+      gap: 20px;
+    }
+  
+    .service-card {
+      max-width: 90%; /* Make the card full width */
+    }
+  
+    .service-image {
+        width: 230px;
+        height: 222px;
+    }
+  
+    .service-card h3 {
+      font-size: 1.1rem;
+    }
+  
+    .service-card p {
+      font-size: 0.9rem;
+    }
+  
+    .service-button {
+      padding: 8px 16px; /* Smaller button for smaller screens */
+      font-size: 0.9rem;
+    }
+  }
+  

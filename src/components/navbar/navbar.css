@@ -98,7 +98,7 @@
 }
 
 .logbutton:hover {
-  color: #6F2480;
+  transform: scale(0.95);
 }
 
 .logbutton:active {
@@ -263,6 +263,14 @@ display: none;
     left: 45%;
     bottom: 22%;
 }
+.keys {
+  position: absolute;
+  top: -9%;
+  left: 7%;
+  width: 30px;
+  height: auto;
+  transform-origin: top center;
+}
 }  
 
 .menu-icon {
@@ -287,7 +295,7 @@ display: none;
 /* Default (desktop) dropdown menu */
 .dropdown-menu.desktop-dropdown {
   position: absolute;
-  left: 38%;
+  left: 41%;
   background-color: #f7f3f0;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 100;

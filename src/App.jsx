@@ -6,8 +6,8 @@ import HeroSection from "./components/HeroSection/HeroSection";
 import PropertyComponent from "./components/Property/PropertyComponent";
 import Footer from "./components/footer/Footer";
 import ContactPage from "./components/Contact/ContactPage";
-import ServicesCarousel2 from "./components/servicesComponont/ServicesCarousel2";
 import logokeys from "./components/navbar/logokeys.png";
+import OurServices from "./components/myservices/OurServices";
 
 function App() {
   const [showLoader, setShowLoader] = useState(true);
@@ -55,7 +55,7 @@ function App() {
           <div className="serviceshide">
             <h1>Our Services</h1>
           </div>
-          <ServicesCarousel2 />
+          <OurServices />
           <PropertyComponent />
           <ContactPage />
           <Footer />
