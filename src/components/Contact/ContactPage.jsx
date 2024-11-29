@@ -25,18 +25,9 @@ const ContactPage = () => {
 
             <label>What service are you interested in?</label>
             <select>
-              <option>Select project type</option>
               <option>Buying Property</option>
               <option>Selling Property</option>
               <option>Consulting</option>
-            </select>
-
-            <label>Budget</label>
-            <select>
-              <option>Select project budget</option>
-              <option>$50,000 - $100,000</option>
-              <option>$100,000 - $500,000</option>
-              <option>$500,000+</option>
             </select>
 
             <label>Message</label>
