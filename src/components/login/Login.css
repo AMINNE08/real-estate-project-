@@ -58,6 +58,7 @@
     justify-content: center;
     flex-direction: column;
     padding: 20px 40px;
+    height: 100%;
 }
 
 .container input{
@@ -213,3 +214,18 @@
     background-color: rgba(0, 0, 0, 0.5); /* Add dimmed background */
     z-index: 999; /* Ensures it is above other elements */
 }
+
+.authicon:hover {
+background-color: #6F2480;
+color: #fff;
+cursor: pointer;
+}
+
+.container a:hover {
+    text-decoration: underline;
+    /* scale: ; help me with this too i forgot what value should i do to make it work ! */
+}
+
+.iicon {
+    margin-right: 11px;
+} 
