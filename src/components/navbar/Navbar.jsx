@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./navbar.css";
-import logo from "../navbar/logo.png";
-import logokeys from "../navbar/logokeys.png";
+import logo from "../../shared/images/logo.png";
+import logokeys from "../../shared/images/logokeys.png";
 import Login from "../login/Login";
 import { GrLanguage } from "react-icons/gr";
 import { MdOutlineHelpCenter } from "react-icons/md";
@@ -9,12 +9,17 @@ import { MdMiscellaneousServices } from "react-icons/md";
 import { CiSquareInfo } from "react-icons/ci";
 import { IoHomeOutline } from "react-icons/io5";
 import { FiMenu, FiX } from "react-icons/fi";
+import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
+import  noAvatar from "../../shared/images/noavatar.jpg"
 
-const Navbar = () => {
+const Navbar = ({showLogin = true }) => {
   const [isActive, setIsActive] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("Home");
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
+  const {currentUser}=useContext(AuthContext)
+  console.log("Navbar currentUser:", currentUser); // Log current user
 
   const toggleMenu = () => {
     setIsActive(!isActive);
@@ -70,17 +75,35 @@ const Navbar = () => {
         </a>
       </nav>
       </div>
-      <button
-        className="logbutton"
-        onClick={() => setModalOpen(true)} // Open the modal when clicked
-      >
-        Login
-      </button>
-      
-      {modalOpen && <Login setOpenModal={setModalOpen} />}{" "}
-      
+
+      {/* Right Side of Navbar */}
+      <div className="rightNav">
+        {currentUser ? (
+          <div className="userNav">
+            <img className="avatarImgNav" src={currentUser.avatar || noAvatar} alt="User Avatar" />
+            <span>{currentUser.username || "User" }</span>
+            <Link to="/welcome_page" className="profileNav">
+              <div className="notification">3</div>
+              <span>Profile</span>
+            </Link>
+          </div>
+        ) : (
+          showLogin && (
+            <button
+              className="logbutton"
+              onClick={() => setModalOpen(true)}
+            >
+              Login
+            </button>
+          )
+        )}
+      </div>
+
+      {modalOpen && <Login setOpenModal={setModalOpen} />}
+
+      {/* Hamburger Menu */}
       <div className="menu-icon" onClick={toggleMenu}>
-        {isActive ?<FiX size={36} /> : <FiMenu size={36} />}
+        {isActive ? <FiX size={36} /> : <FiMenu size={36} />}
       </div>
     </header>
   );

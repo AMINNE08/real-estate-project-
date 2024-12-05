@@ -336,3 +336,51 @@ display: none;
   background-color: #6f2480;
   color: #fff;
 }
+
+
+
+.avatarImgNav {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 7px;
+}
+
+.userNav{
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.notification{
+  position: absolute;
+  top: -11px;
+  right: -16px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightNav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.profileNav{
+  padding: 9px 9px;
+  background-color: black;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  color: white;
+  text-decoration: none;
+  margin-left: 13px;
+}

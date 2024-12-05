@@ -1,7 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 import styles from "./PropertyComponent.module.css";
-import trustimg from "../Property/trustimg.webp";
+import trustimg from "../../shared/images/trustimg.webp";
 
 const PropertyComponent = () => {
   // Hook to detect when the stats section comes into view

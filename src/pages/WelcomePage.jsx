@@ -1,9 +1,22 @@
+import  { useContext } from "react";
+import Navbar from "../components/navbar/Navbar";
+import ProfilePage from "./ProfilePage";
+import { AuthContext } from "../context/AuthContext";
 
 export default function WelcomePage() {
-    return (
-        <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <h1>Welcome to the App!</h1>
-            <p>You have successfully logged in. Enjoy exploring the features!</p>
-        </div>
-    );
+  const { currentUser } = useContext(AuthContext);
+
+  console.log("WelcomePage currentUser:", currentUser); // Log current user here
+
+  if (!currentUser) {
+    console.warn("No user found in context. Redirecting to login...");
+    return <div>Redirecting to login...</div>; // Handle case where user is not logged in
+  }
+
+  return (
+    <div>
+      <Navbar showLogin={false} />
+      <ProfilePage />
+    </div>
+  );
 }

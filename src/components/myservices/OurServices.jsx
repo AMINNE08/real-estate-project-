@@ -1,7 +1,7 @@
 import ServiceCard from './ServiceCard';
-import BuyImage from '../myservices/buy.webp'; 
-import SellImage from '../myservices/sell.webp';
-import RentImage from '../myservices/rent.webp';
+import BuyImage from '../../shared/images/buy.webp'; 
+import SellImage from '../../shared/images/sell.webp';
+import RentImage from '../../shared/images/rent.webp';
 import '../myservices/OurServices.css'
 const OurServices = () => {
   const services = [

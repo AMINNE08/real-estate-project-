@@ -1,5 +1,5 @@
-import "./ContactPage.css"; // Import the CSS file
-import contactImage from "../Contact/contactimage.webp"; // Replace with your image path
+import "./ContactPage.css"; 
+import contactImage from "../../shared/images/contactimage.webp"; 
 
 const ContactPage = () => {
   return (

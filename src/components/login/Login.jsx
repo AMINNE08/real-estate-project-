@@ -1,20 +1,23 @@
-import { useState } from "react";
-import axios from "axios";
+import { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { useNavigate, Link } from "react-router-dom"; // Import useNavigate
-import { toast, ToastContainer } from "react-toastify"; // Import Toastify components
-import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
+import { useNavigate, Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import api from "../../utils/api"; 
+import "react-toastify/dist/ReactToastify.css";
 import "../login/Login.css";
+import { AuthContext } from "../../context/AuthContext";
+
 export default function Login({ setOpenModal }) {
   const [isActive, setIsActive] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     username: "",
     phone: "",
   });
-  const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate(); // Initialize navigate
+  const {updateUser} = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setFormData({
@@ -23,76 +26,67 @@ export default function Login({ setOpenModal }) {
     });
   };
 
-  const handleRegisterClick = () => {
-    setIsActive(true);
-    setErrorMessage("");
-  };
-
-  const handleLoginClick = () => {
-    setIsActive(false);
-    setErrorMessage("");
-  };
+  const handleRegisterClick = () => setIsActive(true);
+  const handleLoginClick = () => setIsActive(false);
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:3000/api/v1/auth/registre",
-        {
-          username: formData.username,
-          email: formData.email,
-          password: formData.password,
-          phone: formData.phone,
-        }
-      );
-      toast.success("Registration successful! 🎉"); // Success toast
+      const response = await api.post("/auth/registre", formData);
+      toast.success("Registration successful! 🎉");
       setIsActive(false); // Switch to login mode
     } catch (error) {
-      const message = error.response?.data?.message || "Registration failed.";
-      toast.error(message); // Error toast
-      setErrorMessage(message);
+      toast.error(
+        error.response?.data?.message || "Registration failed. Please try again."
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:3000/api/v1/auth/login",
-        {
-          email: formData.email,
-          password: formData.password,
-        }
-      );
-      toast.success("Login successful! ✅"); // Success toast
-      setOpenModal(false); // Close modal on success
-      navigate("/welcome_page");
+      console.log("Login attempt with:", formData); // Log form data
+      const response = await api.post("/auth/login", {
+        email: formData.email,
+        password: formData.password,
+      });
+      console.log("Login response:", response.data); // Log server response
+      if (response.data) {
+        updateUser(response.data.user)
+        toast.success("Login successful! ✅");
+        setOpenModal(false); 
+        navigate("/welcome_page");
+      } else {
+        throw new Error("Invalid response from server")
+      }
     } catch (error) {
-      const message = error.response?.data?.message || "Login failed.";
-      toast.error(message); // Error toast
-      setErrorMessage(message);
+      console.error("Login error:", error); // Log errors
+      toast.error(
+        error.response?.data?.message || "Login failed. Please try again."
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:3000/auth/google"; 
- };
-
- 
+    window.location.href = "http://127.0.0.1:3000/auth/google"; // Redirect to Google OAuth
+  };
 
   return (
     <>
-      {/* Toast Container */}
+      {/* Toast Notifications */}
       <ToastContainer
         position="top-right"
         autoClose={3000}
         hideProgressBar={false}
-        newestOnTop={false}
         closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
         pauseOnHover
+        draggable
         theme="colored"
       />
 
@@ -101,15 +95,17 @@ export default function Login({ setOpenModal }) {
           className={`container ${isActive ? "active" : ""}`}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Register Form */}
+          {/* Registration Form */}
           <div className="form-container sign-up">
             <form onSubmit={handleRegister}>
               <h1>Create Account</h1>
-              <div className="social-icons">
-              <button className="authicon" onClick={handleGoogleLogin}>
-                    <FaGoogle className="iicon" /> Sign in with Google
-                </button>
-              </div>
+              <button
+                type="button"
+                className="authicon"
+                onClick={handleGoogleLogin}
+              >
+                <FaGoogle className="iicon" /> Sign in with Google
+              </button>
               <span>or use your email for registration</span>
               <input
                 type="text"
@@ -136,14 +132,16 @@ export default function Login({ setOpenModal }) {
                 required
               />
               <input
-                type="phoneNumber"
+                type="tel"
                 name="phone"
-                placeholder="phone Number"
+                placeholder="Phone Number"
                 value={formData.phone}
                 onChange={handleInputChange}
                 required
               />
-              <button type="submit">Register</button>
+              <button type="submit" disabled={loading}>
+                {loading ? "Registering..." : "Register"}
+              </button>
             </form>
           </div>
 
@@ -151,11 +149,13 @@ export default function Login({ setOpenModal }) {
           <div className="form-container sign-in">
             <form onSubmit={handleLogin}>
               <h1>Login</h1>
-              <div className="social-icons">
-                <button className="authicon" onClick={handleGoogleLogin}>
-                  <FaGoogle className="iicon" /> Sign in with Google
-                </button>
-              </div>
+              <button
+                type="button"
+                className="authicon"
+                onClick={handleGoogleLogin}
+              >
+                <FaGoogle className="iicon" /> Sign in with Google
+              </button>
               <span>or use your email and password</span>
               <input
                 type="email"
@@ -173,19 +173,19 @@ export default function Login({ setOpenModal }) {
                 onChange={handleInputChange}
                 required
               />
-              <Link to='/forgot_page'>Forgot Your Password?</Link>
-              <button type="submit">Login</button>
+              <Link to="/forgot_page">Forgot Your Password?</Link>
+              <button type="submit" disabled={loading}>
+                {loading ? "Logging in..." : "Login"}
+              </button>
             </form>
           </div>
 
-          {/* Toggle Between Forms */}
+          {/* Form Toggle */}
           <div className="toggle-container">
             <div className="toggle">
               <div className="toggle-panel toggle-left">
                 <h1>Welcome Back!</h1>
-                <p>
-                  Enter your personal details to use all of our site features
-                </p>
+                <p>Enter your personal details to use all site features</p>
                 <button
                   className="hidden"
                   id="login"
@@ -196,10 +196,7 @@ export default function Login({ setOpenModal }) {
               </div>
               <div className="toggle-panel toggle-right">
                 <h1>Hello, Friend!</h1>
-                <p>
-                  Register with your personal details to use all of our site
-                  features
-                </p>
+                <p>Register with your personal details to use all site features</p>
                 <button
                   className="hidden"
                   id="register"

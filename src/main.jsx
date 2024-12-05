@@ -5,9 +5,11 @@ import App from './App.jsx';
 import WelcomePage from './pages/WelcomePage.jsx'; 
 import ForgotPage from './pages/ForgotPage.jsx';
 import ResetPage from './pages/ResetPage.jsx';
+import { AuthContextProvider } from './context/AuthContextProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <AuthContextProvider>
     <Router>
       <Routes>
         <Route path="/" element={<App />} /> 
@@ -16,5 +18,6 @@ createRoot(document.getElementById('root')).render(
         <Route path="/reset-password" element={<ResetPage />} />
       </Routes>
     </Router>
+    </AuthContextProvider>
   </StrictMode>,
 );

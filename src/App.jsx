@@ -6,7 +6,7 @@ import HeroSection from "./components/HeroSection/HeroSection";
 import PropertyComponent from "./components/Property/PropertyComponent";
 import Footer from "./components/footer/Footer";
 import ContactPage from "./components/Contact/ContactPage";
-import logokeys from "./components/navbar/logokeys.png";
+import logokeys from "./shared/images/logokeys.png";
 import OurServices from "./components/myservices/OurServices";
 
 function App() {
