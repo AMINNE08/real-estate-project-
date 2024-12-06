@@ -107,7 +107,7 @@ const Navbar = ({showLogin = true }) => {
             </span>
             {showUserDropdown && (
               <div className="user-dropdown">
-                <Link to="/my-profile">My Profile</Link>
+                <Link to="/profile">My Profile</Link>
                 <Link to="/wishlist">Wishlist</Link>
                 <Link to="/property-list">Property List</Link>
                 <Link to="/reservation-list">Reservation List</Link>
