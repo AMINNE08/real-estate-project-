@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
-import "../styles/updatePage.css"
+import "../styles/updatePage.css";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import api from "../utils/api";
-import noavatar from "../shared/images/noavatar.jpg"
+import noavatar from "../shared/images/noavatar.jpg";
 import Upload from "../components/upload/Upload";
 
 function UpdatePage() {
@@ -24,7 +24,7 @@ function UpdatePage() {
         username,
         email,
         password,
-        avatar:avatar[0]
+        avatar: avatar[0],
       });
       updateUser(res.data);
       navigate("/profile");
@@ -58,15 +58,28 @@ function UpdatePage() {
             />
           </div>
           <div className="item">
-            <label htmlFor="password">Password</label>
-            <input id="password" name="password" type="password" />
+            <label htmlFor="phone">Phone</label>
+            <input
+              id="phone"
+              name="phone"
+              type="text" 
+              maxLength={10}
+              pattern="\d{10}" 
+              title="Phone number must be exactly 10 digits."
+              defaultValue={currentUser.phone}
+              required
+            />
           </div>
           <button>Update</button>
           {error && <span>error</span>}
         </form>
       </div>
       <div className="sideContainer">
-        <img src={avatar[0] || currentUser.avatar || noavatar } alt="" className="avatar" />
+        <img
+          src={avatar[0] || currentUser.avatar || noavatar}
+          alt=""
+          className="avatar"
+        />
         <Upload
           uwConfig={{
             cloudName: "lamadev",

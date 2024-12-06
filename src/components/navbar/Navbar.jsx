@@ -103,7 +103,7 @@ const Navbar = ({showLogin = true }) => {
               onClick={() => setShowUserDropdown(!showUserDropdown)} // Toggle dropdown on click
             />
             <span onClick={() => setShowUserDropdown(!showUserDropdown)}>
-              {currentUser || "User"}
+              {currentUser.username || "User"}
             </span>
             {showUserDropdown && (
               <div className="user-dropdown">
