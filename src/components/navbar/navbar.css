@@ -384,3 +384,28 @@ display: none;
   text-decoration: none;
   margin-left: 13px;
 }
+
+.user-dropdown {
+  position: absolute;
+  top: 50px; /* Adjust based on your layout */
+  right: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.user-dropdown a,
+.user-dropdown button {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.user-dropdown a:hover,
+.user-dropdown button:hover {
+  background-color: #f0f0f0;
+}
