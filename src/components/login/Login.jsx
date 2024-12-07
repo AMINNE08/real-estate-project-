@@ -48,20 +48,22 @@ export default function Login({ setOpenModal }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
+  
     try {
-      console.log("Login attempt with:", formData); // Log form data
+      console.log("Login attempt with formData:", formData); // Log user input
       const response = await api.post("/auth/login", {
         email: formData.email,
         password: formData.password,
       });
-      console.log("Login response:", response.data); // Log server response
+      console.log("Server response:", response.data); // Log response from the backend
+  
       if (response.data) {
-        updateUser(response.data.user)
+        updateUser(response.data.user); // Save user to context
         toast.success("Login successful! ✅");
-        setOpenModal(false); 
+        setOpenModal(false);
         navigate("/welcome_page");
       } else {
-        throw new Error("Invalid response from server")
+        throw new Error("Invalid response from server");
       }
     } catch (error) {
       console.error("Login error:", error); // Log errors
@@ -72,6 +74,7 @@ export default function Login({ setOpenModal }) {
       setLoading(false);
     }
   };
+  
 
   const handleGoogleLogin = () => {
     window.location.href = "http://127.0.0.1:3000/auth/google"; // Redirect to Google OAuth

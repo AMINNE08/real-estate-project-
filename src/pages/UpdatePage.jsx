@@ -71,7 +71,7 @@ function UpdatePage() {
             />
           </div>
           <button>Update</button>
-          {error && <span>error</span>}
+          {error && <span>{error}</span>}
         </form>
       </div>
       <div className="sideContainer">

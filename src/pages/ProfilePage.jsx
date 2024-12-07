@@ -8,8 +8,8 @@ function ProfilePage() {
     console.log(currentUser); // Check if all properties are there
 
     if (!currentUser) {
-      return <p>Loading...</p>; // Handle case when currentUser is null
-    }
+      return <p>Unable to load user information. Please log in again.</p>;
+        }
     return (
       <div className="profilePage">
         <div className="details">
