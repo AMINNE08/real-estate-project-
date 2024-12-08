@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import axios from 'axios';
-import forgot from '../shared/images/forgot.svg';
+import forgot from '../assets/images/forgot.svg';
 import '../styles/ForgotPage.css'; 
+import api from '../shared/api'
 
 export default function ForgotPage() {
   const [email, setEmail] = useState('');
@@ -13,7 +13,7 @@ export default function ForgotPage() {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/auth/forgot-password', { email });
+      const response = await api.post('/auth/forgot-password', { email });
       setMessage(response.data.message);
     } catch (error) {
       setMessage(error.response ? error.response.data.message : 'An error occurred');

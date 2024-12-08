@@ -2,7 +2,7 @@
     display: flex;
     padding: 40px;
     font-family: Arial, sans-serif;
-    transition: all 0.3s ease-in-out; /* Smooth transition */
+    transition: all 0.3s ease-in-out; 
 
   }
   
@@ -20,7 +20,7 @@
   .contact-left h2 {
     font-size: 2em;
     margin-bottom: 10px;
-    transition: transform 0.3s ease-in-out; /* Smooth image resizing */
+    transition: transform 0.3s ease-in-out; 
 
   }
   
@@ -41,7 +41,7 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out; /* Smooth transition for the form */
+    transition: all 0.3s ease-in-out; 
 
   }
   
@@ -102,12 +102,12 @@
 
 @media (max-width: 768px) {
   .contact-page {
-    flex-direction: column; /* Stack image and form vertically */
+    flex-direction: column; 
   }
 
   .contact-left {
     padding-right: 0;
-    margin-bottom: 20px; /* Add spacing between the image and the form */
+    margin-bottom: 20px; 
   }
 }
 
@@ -117,10 +117,10 @@
   }
 
   .contact-image {
-    transform: scale(0.95); /* Slight scaling effect for the image */
+    transform: scale(0.95); 
   }
 
   .contact-form {
-    transform: scale(0.95); /* Slight scaling effect for the form */
+    transform: scale(0.95); 
   }
 }

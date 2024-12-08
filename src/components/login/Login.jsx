@@ -1,11 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { useNavigate, Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import api from "../../utils/api"; 
+import api from "../../shared/api"
 import "react-toastify/dist/ReactToastify.css";
 import "../login/Login.css";
-import { AuthContext } from "../../context/AuthContext";
 
 export default function Login({ setOpenModal }) {
   const [isActive, setIsActive] = useState(false);
@@ -16,7 +15,6 @@ export default function Login({ setOpenModal }) {
     username: "",
     phone: "",
   });
-  const {updateUser} = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -35,7 +33,7 @@ export default function Login({ setOpenModal }) {
     try {
       const response = await api.post("/auth/registre", formData);
       toast.success("Registration successful! 🎉");
-      setIsActive(false); // Switch to login mode
+      setIsActive(false); 
     } catch (error) {
       toast.error(
         error.response?.data?.message || "Registration failed. Please try again."
@@ -50,15 +48,14 @@ export default function Login({ setOpenModal }) {
     setLoading(true);
   
     try {
-      console.log("Login attempt with formData:", formData); // Log user input
+      console.log("Login attempt with formData:", formData); 
       const response = await api.post("/auth/login", {
         email: formData.email,
         password: formData.password,
       });
-      console.log("Server response:", response.data); // Log response from the backend
+      console.log("Server response:", response.data); 
   
       if (response.data) {
-        updateUser(response.data.user); // Save user to context
         toast.success("Login successful! ✅");
         setOpenModal(false);
         navigate("/welcome_page");
@@ -77,12 +74,11 @@ export default function Login({ setOpenModal }) {
   
 
   const handleGoogleLogin = () => {
-    window.location.href = "http://127.0.0.1:3000/auth/google"; // Redirect to Google OAuth
+    window.location.href = "http://localhost:3000/api/v1/auth/google"; 
   };
 
   return (
     <>
-      {/* Toast Notifications */}
       <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -148,7 +144,6 @@ export default function Login({ setOpenModal }) {
             </form>
           </div>
 
-          {/* Login Form */}
           <div className="form-container sign-in">
             <form onSubmit={handleLogin}>
               <h1>Login</h1>
@@ -183,7 +178,6 @@ export default function Login({ setOpenModal }) {
             </form>
           </div>
 
-          {/* Form Toggle */}
           <div className="toggle-container">
             <div className="toggle">
               <div className="toggle-panel toggle-left">

@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
 import '../styles/ResetPage.css'; 
+import api from '../shared/api'
 
 export default function ResetPage() {
   const location = useLocation();
 
-  // Get the token and user ID from the query parameters
   const query = new URLSearchParams(location.search);
   const token = query.get('token');
   const id = query.get('id');
@@ -19,22 +18,19 @@ export default function ResetPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if passwords match
     if (newPassword !== confirmPassword) {
       setError('Passwords do not match.');
       return;
     }
 
     try {
-      // Send reset password request to the backend
-      const response = await axios.post('http://localhost:3000/api/v1/auth/reset-password', {
+      const response = await api.post('/auth/reset-password', {
         token,
         id,
         newPassword,
       });
-      setSuccess(response.data.message); // Display success message
+      setSuccess(response.data.message); 
     } catch (err) {
-      // Handle error from the backend
       setError(err.response?.data.message || 'An error occurred while resetting the password.');
     }
   };
@@ -43,8 +39,8 @@ export default function ResetPage() {
     <div className="containerR">
       <div className="form-containerR">
         <h2 className="titleR">Reset Password</h2>
-        {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
-        {success && <p style={{ color: 'green' }}>{success}</p>} {/* Display success message */}
+        {error && <p style={{ color: 'red' }}>{error}</p>} 
+        {success && <p style={{ color: 'green' }}>{success}</p>} 
         <form onSubmit={handleSubmit}>
           <div className="input-groupR">
             <label className="labelR">New Password:</label>

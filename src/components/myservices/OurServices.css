@@ -3,7 +3,7 @@
     justify-content: space-between;
     gap: 20px;
     padding: 40px;
-    flex-wrap: wrap; /* Enables wrapping for smaller screens */
+    flex-wrap: wrap; 
   }
   
   .service-card {
@@ -49,15 +49,14 @@
     transform: scale(0.95);
   }
   
-  /* Responsive for tablets (768px and below) */
   @media (max-width: 768px) {
     .our-services {
-      justify-content: center; /* Center align cards */
+      justify-content: center;
       gap: 15px;
     }
   
     .service-card {
-      max-width: 80%; /* Increase width for better readability */
+      max-width: 80%;
     }
   
     .service-image {
@@ -74,16 +73,15 @@
     }
   }
   
-  /* Responsive for phones (480px and below) */
   @media (max-width: 480px) {
     .our-services {
-      flex-direction: column; /* Stack cards vertically */
+      flex-direction: column; 
       align-items: center;
       gap: 20px;
     }
   
     .service-card {
-      max-width: 90%; /* Make the card full width */
+      max-width: 90%; 
     }
   
     .service-image {
@@ -100,7 +98,7 @@
     }
   
     .service-button {
-      padding: 8px 16px; /* Smaller button for smaller screens */
+      padding: 8px 16px; 
       font-size: 0.9rem;
     }
   }

@@ -387,7 +387,7 @@ display: none;
 
 .user-dropdown {
   position: absolute;
-  top: 50px; /* Adjust based on your layout */
+  top: 50px; 
   right: 10px;
   background-color: white;
   border: 1px solid #ccc;

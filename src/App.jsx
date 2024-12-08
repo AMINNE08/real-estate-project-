@@ -6,7 +6,7 @@ import HeroSection from "./components/HeroSection/HeroSection";
 import PropertyComponent from "./components/Property/PropertyComponent";
 import Footer from "./components/footer/Footer";
 import ContactPage from "./components/Contact/ContactPage";
-import logokeys from "./shared/images/logokeys.png";
+import logokeys from "./assets/images/logokeys.png";
 import OurServices from "./components/myservices/OurServices";
 
 function App() {
@@ -14,18 +14,15 @@ function App() {
   const [showWelcome, setShowWelcome] = useState(false);
 
   useEffect(() => {
-    // Show the loader for 3 seconds
     const loaderTimer = setTimeout(() => {
       setShowLoader(false);
       setShowWelcome(true);
-    }, 3000); // Matches the loader's animation duration
+    }, 3000); 
 
-    // Show the welcome message for 2 seconds, then show the main content
     const welcomeTimer = setTimeout(() => {
       setShowWelcome(false);
-    }, 5000); // 2 seconds after the loader ends
+    }, 5000); 
 
-    // Clean up timers
     return () => {
       clearTimeout(loaderTimer);
       clearTimeout(welcomeTimer);

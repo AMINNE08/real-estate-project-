@@ -1,5 +1,5 @@
 import "./ContactPage.css"; 
-import contactImage from "../../shared/images/contactimage.webp"; 
+import contactImage from "../../assets/images/contactimage.webp"; 
 
 const ContactPage = () => {
   return (

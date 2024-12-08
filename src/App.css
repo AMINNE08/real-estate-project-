@@ -1,9 +1,8 @@
-/* App.css */
 
 .welcome-message {
     font-size: 3vw;
-    color: #4e4a8a; /* Dark blue from your palette */
-    animation: fadeIn 1s ease forwards, fadeOut 1s ease forwards 2s; /* Adjusted fadeOut start time */
+    color: #4e4a8a; 
+    animation: fadeIn 1s ease forwards, fadeOut 1s ease forwards 2s; 
     text-align: center;
     transition: opacity 1s ease-out;
     display: flex;
@@ -51,62 +50,58 @@
     padding-top: 22px;
 }
 
-/* Swinging animation */
 @keyframes swing-keys {
     0% {
-        transform: rotate(0deg); /* Neutral position */
+        transform: rotate(0deg); 
     }
     25% {
-        transform: rotate(10deg); /* Swing to the right */
+        transform: rotate(10deg);
     }
     50% {
-        transform: rotate(-10deg); /* Swing to the left */
+        transform: rotate(-10deg); 
     }
     75% {
-        transform: rotate(5deg); /* Back to the right */
+        transform: rotate(5deg);
     }
     100% {
-        transform: rotate(0deg); /* Back to neutral */
+        transform: rotate(0deg);
     }
 }
 
-/* Apply swing animation to the logo */
 .logoanimation {
     animation: swing-keys 2s ease-in-out infinite;
-    transform-origin: top center; /* Swing from the top center of the element */
+    transform-origin: top center; 
     max-width: 100%;
 }
 
-/* Adjustments for tablets */
 @media (max-width: 768px) {
     .welcome-message {
-        font-size: 5vw; /* Slightly larger text for tablets */
+        font-size: 5vw; 
     }
 
     .welcome-message img {
-        width: 30%; /* Adjust logo size for tablets */
+        width: 30%; 
     }
 }
 
-/* Adjustments for smaller phones */
 @media (max-width: 480px) {
     .welcome-message {
-        font-size: 6vw; /* Larger text for small screens */
+        font-size: 6vw; 
     }
 
     .welcome-message img {
-        width: 40%; /* Adjust logo size for mobile */
+        width: 40%; 
     }
 }
 
 @media (max-width: 768px) {
     .logoanimation {
-        width: 30%; /* Adjust for tablets */
+        width: 30%; 
     }
 }
 
 @media (max-width: 480px) {
     .logoanimation {
-        width: 50%; /* Adjust for mobile devices */
+        width: 50%; 
     }
 }

@@ -92,20 +92,19 @@
     color: #666;
 }
 
-/* Media Query for Tablets (768px) */
 @media (max-width: 768px) {
     .content {
-        flex-direction: column-reverse; /* Stack content vertically */
+        flex-direction: column-reverse; 
         text-align: center;
     }
 
     .textSection {
-        text-align: center; /* Center-align text */
+        text-align: center;
     }
 
     .imageSection {
-        width: 100%; /* Make image take full width */
-        height: 100%; /* Adjust height automatically */
+        width: 100%; 
+        height: 100%;
 
     }
 
@@ -118,29 +117,28 @@
     }
 }
 
-/* Media Query for Phones (480px) */
 @media (max-width: 480px) {
     .propertyComponent h1 {
-        font-size: 1.8rem; /* Adjust font size for smaller screens */
+        font-size: 1.8rem; 
         padding: 0 5%;
     }
 
     .content {
-        flex-direction: column-reverse; /* Stack content vertically */
-        gap: 1.5rem; /* Adjust gap */
+        flex-direction: column-reverse; 
+        gap: 1.5rem; 
     }
 
     .imageSection {
-        width: 100%; /* Make image take full width */
-        height: auto; /* Adjust height automatically */
+        width: 100%; 
+        height: auto; 
     }
 
     .textSection h2 {
-        font-size: 1.3rem; /* Smaller heading size */
+        font-size: 1.3rem;
     }
 
     .buttons {
-        flex-direction: column; /* Stack buttons vertically */
+        flex-direction: column; 
         gap: 0.5rem;
     }
 

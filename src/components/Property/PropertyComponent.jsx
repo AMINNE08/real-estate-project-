@@ -1,13 +1,12 @@
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 import styles from "./PropertyComponent.module.css";
-import trustimg from "../../shared/images/trustimg.webp";
+import trustimg from "../../assets/images/trustimg.webp";
 
 const PropertyComponent = () => {
-  // Hook to detect when the stats section comes into view
   const { ref: statsRef, inView: statsInView } = useInView({
-    triggerOnce: true, // Trigger only once
-    threshold: 0.3, // Trigger when 30% of the section is visible
+    triggerOnce: true, 
+    threshold: 0.3, 
   });
 
   return (
@@ -35,7 +34,6 @@ const PropertyComponent = () => {
         </div>
       </div>
 
-      {/* Stats Section with Counter */}
       <div className={styles.stats} ref={statsRef}>
         <div className={styles.statItem}>
           <span className={styles.number}>
