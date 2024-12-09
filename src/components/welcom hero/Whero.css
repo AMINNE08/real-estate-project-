@@ -1,0 +1,80 @@
+.whero-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .whero-background {
+    background-image: url('/src/assets/images/bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 655px;
+    width: 100%;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: flex;
+  }
+  
+  .whero-content {
+    position: relative;
+    top: 8rem;
+  }
+  
+  .whero-subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    color: #585858;
+  }
+  
+  .whero-title {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    max-width: 40rem;
+    margin: 1rem auto;
+  }
+  
+  .whero-description {
+    max-width: 33rem;
+    font-size: 16px;
+    color: #7b7b7b;
+    margin-bottom: 30px;
+  }
+  
+  .whero-offer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  
+  .woffer-text {
+    text-align: left;
+    padding-left: 1rem;
+  }
+  
+  .woffer-text h5 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .woffer-text p {
+    font-size: 14px;
+    color: #a2a2a2;
+  }
+  
+  .whero-button {
+    padding: 1rem 2rem;
+    background-color: #8ac243;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 1rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
