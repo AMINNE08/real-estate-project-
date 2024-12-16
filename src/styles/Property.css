@@ -1,0 +1,94 @@
+.section-container {
+    max-width: 100%;
+    margin: 0px auto;
+    padding: 20px;
+  }
+  
+  .image-container {
+    position: relative;
+    padding-bottom: 20px;
+  }
+  
+  .property-image {
+    border-radius: 12px;
+    max-height: 27rem;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .heart-btn-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  .property-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .property-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .property-title {
+    font-weight: 500;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .property-price {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .facilities-container {
+    display: flex;
+    gap: 16px;
+    padding: 10px 0;
+  }
+  
+  .facility-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+    padding-right: 16px;
+    font-weight: 500;
+  }
+  
+  .property-description {
+    padding-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .location-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 20px 0;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .book-visit-btn {
+    background-color: #555;
+    color: #fff;
+    border-radius: 12px;
+    padding: 7px 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .book-visit-btn:hover {
+    background-color: #333;
+  }
+  

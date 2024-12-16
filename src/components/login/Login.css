@@ -211,8 +211,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Add dimmed background */
-    z-index: 999; /* Ensures it is above other elements */
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999; 
 }
 
 .authicon:hover {
@@ -223,7 +223,6 @@ cursor: pointer;
 
 .container a:hover {
     text-decoration: underline;
-    /* scale: ; help me with this too i forgot what value should i do to make it work ! */
 }
 
 .iicon {

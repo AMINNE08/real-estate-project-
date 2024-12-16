@@ -1,4 +1,3 @@
-/* Main container for the properties section */
 .properties-container {
     padding: 2rem 1rem;
 }
@@ -9,7 +8,6 @@
     border-radius: 1.5rem;
 }
 
-/* Section titles and subtitles */
 .properties-subtitle {
     font-size: 18px;
     font-weight: 500;
@@ -21,7 +19,6 @@
     margin: 1rem 0;
 }
 
-/* Header styles */
 .properties-header {
     display: flex;
     justify-content: space-between;
@@ -46,7 +43,6 @@
     border: 1px solid #e0e0e0;
 }
 
-/* Swiper styling */
 .properties-slider {
     height: auto;
     margin-top: 2rem;
@@ -59,9 +55,9 @@
 
 .swiper-slide {
     display: flex;
-    align-items: stretch; /* Ensure consistent alignment */
+    align-items: stretch; 
     justify-content: center;
-    width: auto; /* Adapt to card size */
+    width: auto; 
     padding: 10px;
 }
 
@@ -78,7 +74,6 @@
     overflow: hidden;
 }
 
-/* Property card styles */
 .property-card {
     background: white;
     border-radius: 1rem;
@@ -89,25 +84,22 @@
     justify-content: space-between;
     transition: transform 0.3s ease-in-out;
     width: 100%;
-    max-width: 300px; /* Prevent excessive width */
-    height: 100%; /* Uniform card height */
+    max-width: 300px; 
+    height: 100%; 
 }
 
-/* Card hover effect */
 .property-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Image styling */
 .property-card img {
     width: 100%;
-    height: 180px; /* Fixed height for images */
+    height: 180px; 
     object-fit: cover;
     border-bottom: 1px solid #ddd;
 }
 
-/* Title and city styling */
 .property-card h5 {
     color: #8ac243;
     margin: 0.5rem 0;
@@ -122,7 +114,6 @@
     color: #333;
 }
 
-/* Facilities section */
 .facilities {
     display: flex;
     gap: 1rem;
@@ -145,20 +136,18 @@
     border-right: none;
 }
 
-/* Description styling */
 .property-card p {
     font-size: 0.9rem;
     color: #777;
     line-height: 1.5;
     margin-bottom: 0.5rem;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Limits description to 2 lines */
+    -webkit-line-clamp: 2; 
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-/* Price and button container */
 .property-card .price-and-button {
     display: flex;
     justify-content: space-between;

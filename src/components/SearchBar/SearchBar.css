@@ -1,0 +1,33 @@
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    height: 3.3rem;
+    background-color: white;
+    width: 100%;
+    max-width: 360px;
+    border-radius: 9999px; 
+    box-shadow: 0 0 0 1px rgba(108, 117, 125, 0.05); 
+    margin-bottom: 22PX;
+  }
+  
+  .search-bar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+  }
+  
+  .search-bar .icon-s {
+    position: relative;
+    right: 0.5rem;
+    font-size: 1.25rem; 
+    cursor: pointer;
+    transition: color 0.2s;
+    top: -2px;
+  }
+  
+  .search-bar .icon-s:hover {
+    color: #6F2480; 
+  }
+  

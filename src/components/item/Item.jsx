@@ -1,12 +1,15 @@
 import { MdOutlineBathtub, MdOutlineBed, MdOutlineGarage } from "react-icons/md";
 // import HeartBtn from "./HeartBtn";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import { CgRuler } from "react-icons/cg";
-import "../item/Item.css"; // Importing the CSS file for Item
+import "../item/Item.css"; 
 
 export default function Item({ property }) {
+  const navigate = useNavigate();
+
+
   return (
-    <div className="item-card">
+    <div onClick={()=> navigate(`../listing/${property._id}`)}   className="item-card">
       <div className="item-image-wrapper">
         <img src={property.image} alt={property.title} className="item-image" />
         <div className="heart-btn-wrapper">

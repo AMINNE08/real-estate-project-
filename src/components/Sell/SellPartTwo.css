@@ -1,0 +1,94 @@
+.y-container {
+    background: linear-gradient(90deg, #c1dee8 1%, #fbd9b9 100%);
+    padding: 2rem;
+    display: flex
+
+  }
+  
+  .y-header {
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+  
+  .y-header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .y-header p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .y-header a {
+    color: #007aff;
+    text-decoration: none;
+  }
+  
+  .y-search {
+    margin-bottom: 1.5rem;
+  }
+  
+  .y-search h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .y-search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .y-search-bar input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+  }
+  
+  .y-search-bar button {
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .y-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  
+  .option {
+    flex: 1;
+    margin-right: 1rem;
+  }
+  
+  .option:last-child {
+    margin-right: 0;
+  }
+  
+  .option h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .option p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .y-image {
+    text-align: center;
+  }
+  
+  .y-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  

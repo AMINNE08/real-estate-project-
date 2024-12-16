@@ -10,29 +10,35 @@ import logokeys from "./assets/images/logokeys.png";
 import OurServices from "./components/myservices/OurServices";
 
 function App() {
-  const [showLoader, setShowLoader] = useState(true);
-  const [showWelcome, setShowWelcome] = useState(false);
+  const [appPhase, setAppPhase] = useState(() => {
+    return sessionStorage.getItem("loaderDisplayed") === "true"
+      ? "home"
+      : "loading";
+  });
 
   useEffect(() => {
-    const loaderTimer = setTimeout(() => {
-      setShowLoader(false);
-      setShowWelcome(true);
-    }, 3000); 
+    if (appPhase === "loading") {
+      const loaderTimer = setTimeout(() => {
+        setAppPhase("welcome");
+        sessionStorage.setItem("loaderDisplayed", "true");
+      }, 3000);
 
-    const welcomeTimer = setTimeout(() => {
-      setShowWelcome(false);
-    }, 5000); 
+      return () => clearTimeout(loaderTimer);
+    }
 
-    return () => {
-      clearTimeout(loaderTimer);
-      clearTimeout(welcomeTimer);
-    };
-  }, []);
+    if (appPhase === "welcome") {
+      const welcomeTimer = setTimeout(() => {
+        setAppPhase("home");
+      }, 2000);
+
+      return () => clearTimeout(welcomeTimer);
+    }
+  }, [appPhase]);
 
   return (
     <div className="App">
-      {showLoader && <Loader />}
-      {!showLoader && showWelcome && (
+      {appPhase === "loading" && <Loader />}
+      {appPhase === "welcome" && (
         <div className="cont">
           <div className="welcome-message">
             <h1>Welcome</h1>
@@ -45,7 +51,7 @@ function App() {
           </div>
         </div>
       )}
-      {!showLoader && !showWelcome && (
+      {appPhase === "home" && (
         <div className="homepage">
           <Navbar />
           <HeroSection />

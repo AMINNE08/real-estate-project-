@@ -27,7 +27,7 @@
     font-size: 16px;
     font-weight: bold;
     margin: 0.5rem 0;
-    color: #8ac243;
+    color: #6F2480;
   }
   
   .item-title {
@@ -80,7 +80,7 @@
   
   .view-details-btn {
     padding: 0.5rem 1rem;
-    background-color: #8ac243;
+    background-color: #6F2480;
     color: #fff;
     border: none;
     border-radius: 0.75rem;
@@ -92,6 +92,6 @@
   }
   
   .view-details-btn:hover {
-    background-color: #76a43b;
+    background-color: #b235ce;
   }
   

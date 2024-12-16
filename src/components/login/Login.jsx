@@ -5,9 +5,10 @@ import { toast, ToastContainer } from "react-toastify";
 import api from "../../shared/api"
 import "react-toastify/dist/ReactToastify.css";
 import "../login/Login.css";
+import { useDispatch } from "react-redux";
+import {login} from "../../redux/userSlice"
 
 export default function Login({ setOpenModal }) {
-  const [isActive, setIsActive] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -15,7 +16,12 @@ export default function Login({ setOpenModal }) {
     username: "",
     phone: "",
   });
-  const navigate = useNavigate();
+  const [isActive, setIsActive] = useState(false);
+
+  const navigate= useNavigate();
+  const dispatch=useDispatch();
+
+
 
   const handleInputChange = (e) => {
     setFormData({
@@ -26,6 +32,42 @@ export default function Login({ setOpenModal }) {
 
   const handleRegisterClick = () => setIsActive(true);
   const handleLoginClick = () => setIsActive(false);
+
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+  
+    try {
+      console.log("Login attempt with formData:", formData); 
+      const response = await api.post("/auth/login", {
+        email: formData.email,
+        password: formData.password,
+      });
+      console.log("Server response:", response.data); 
+  
+      const userData = response.data;
+      console.log("Login successful:", userData);
+
+      localStorage.setItem("user", JSON.stringify(userData)); 
+      localStorage.setItem("token", userData.token);
+      console.log("User saved to localStorage:", JSON.parse(localStorage.getItem("user")));
+
+
+      await dispatch(login(userData));
+      toast.success("Login successful! ✅");
+      setOpenModal(false);
+      navigate("/");
+    } catch (error) {
+      console.error("Login error:", error);
+      toast.error(
+        error.response?.data?.message || "Login failed. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -43,45 +85,13 @@ export default function Login({ setOpenModal }) {
     }
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-  
-    try {
-      console.log("Login attempt with formData:", formData); 
-      const response = await api.post("/auth/login", {
-        email: formData.email,
-        password: formData.password,
-      });
-      console.log("Server response:", response.data); 
-  
-      if (response.data) {
-        toast.success("Login successful! ✅");
-        setOpenModal(false);
-        navigate("/welcome_page");
-      } else {
-        throw new Error("Invalid response from server");
-      }
-    } catch (error) {
-      console.error("Login error:", error); // Log errors
-      toast.error(
-        error.response?.data?.message || "Login failed. Please try again."
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
-  
-
   const handleGoogleLogin = () => {
     window.location.href = "http://localhost:3000/api/v1/auth/google"; 
   };
 
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
+      <ToastContainer position="top-right" autoClose={3000}
         hideProgressBar={false}
         closeOnClick
         pauseOnHover
@@ -143,7 +153,7 @@ export default function Login({ setOpenModal }) {
               </button>
             </form>
           </div>
-
+          {/* login Form */}
           <div className="form-container sign-in">
             <form onSubmit={handleLogin}>
               <h1>Login</h1>
