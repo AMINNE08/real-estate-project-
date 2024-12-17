@@ -1,13 +1,30 @@
-.hea {
-    margin-bottom: 20px;
-  }
-  
-  .map-container {
-    height: 500px;
-    width: 100%;
-  }
-  
-  .mantine-Input {
-    margin-bottom: 10px;
-  }
-  
+.header-segment {
+  margin-bottom: 20px;
+}
+
+.map-container {
+  height: 100%;
+  width: 100%;
+}
+
+.card-image {
+  object-fit: cover;
+  height: 160px;
+}
+
+.card-container {
+  margin-bottom: 20px;
+}
+
+.leaflet-container {
+  height: 100vh;
+  width: 100%;
+}
+
+.map-container {
+  height: 400px; /* Adjust height as per your layout */
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+

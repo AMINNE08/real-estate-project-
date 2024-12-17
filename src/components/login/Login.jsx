@@ -53,8 +53,10 @@ export default function Login({ setOpenModal }) {
       localStorage.setItem("token", userData.token);
       console.log("User saved to localStorage:", JSON.parse(localStorage.getItem("user")));
 
-
+      console.log("Before dispatching login:", userData);
       await dispatch(login(userData));
+      console.log("After dispatching login: Redux state updated.");
+
       toast.success("Login successful! ✅");
       setOpenModal(false);
       navigate("/");
@@ -86,7 +88,10 @@ export default function Login({ setOpenModal }) {
   };
 
   const handleGoogleLogin = () => {
+    const googleAuthURL = "http://localhost:3000/api/v1/auth/google";
+    console.log("Redirecting to:", googleAuthURL);
     window.location.href = "http://localhost:3000/api/v1/auth/google"; 
+
   };
 
   return (

@@ -2,7 +2,6 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
-import WelcomePage from "./pages/WelcomePage.jsx";
 import ForgotPage from "./pages/ForgotPage.jsx";
 import ResetPage from "./pages/ResetPage.jsx";
 import Listing from "./pages/Listing.jsx";
@@ -41,12 +40,6 @@ createRoot(document.getElementById("root")).render(
               path="/"
               element={
                   <App />
-              }
-            />
-            <Route
-              path="/welcome_page"
-              element={
-                  <WelcomePage />
               }
             />
             <Route path="/listing">

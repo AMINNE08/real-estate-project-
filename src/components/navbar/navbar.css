@@ -218,9 +218,11 @@
   .nav-bg.active {
     display: block;
   }
-  .logbutton {
-    display: none;
-      }
+  .cont-right {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
   
 }
 
@@ -237,9 +239,12 @@
     width: 150px;
   }
 
-  .logbutton {
-display: none;
+  .cont-right {
+    display: flex;
+    align-items: center;
+    gap: 5px;
   }
+  
   .navbar .ddropdown-menu {
     display: flex;
     left: 45%;
@@ -494,5 +499,7 @@ display: none;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.navbar {
+display: flex;
 
-
+}

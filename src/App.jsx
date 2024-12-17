@@ -8,6 +8,9 @@ import Footer from "./components/footer/Footer";
 import ContactPage from "./components/Contact/ContactPage";
 import logokeys from "./assets/images/logokeys.png";
 import OurServices from "./components/myservices/OurServices";
+import { login } from "./redux/userSlice";  
+import { useDispatch } from "react-redux";
+
 
 function App() {
   const [appPhase, setAppPhase] = useState(() => {
@@ -15,6 +18,16 @@ function App() {
       ? "home"
       : "loading";
   });
+
+  const dispatch = useDispatch(); // Initialize dispatch
+
+  useEffect(() => {
+    // Load the user from localStorage into Redux if it exists
+    const userFromLocalStorage = JSON.parse(localStorage.getItem("user"));
+    if (userFromLocalStorage) {
+      dispatch(login(userFromLocalStorage));
+    }
+  }, [dispatch]);
 
   useEffect(() => {
     if (appPhase === "loading") {

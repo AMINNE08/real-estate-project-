@@ -23,6 +23,7 @@ const userSlice = createSlice({
   },
   reducers: {
     login: (state, action) => {
+      console.log("Payload received in login reducer:", action.payload);
       state.user = action.payload;
       localStorage.setItem("user", JSON.stringify(action.payload)); 
     },

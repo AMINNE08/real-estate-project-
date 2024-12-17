@@ -3,7 +3,9 @@ import { toast } from "react-toastify";
 
 
 const api = axios.create({
-  baseURL: "http://127.0.0.1:3000/api/v1", 
+  baseURL: "http://localhost:3000/api/v1", 
+  withCredentials: true, // Ensures cookies are sent
+
 });
 
 export default api;
@@ -44,28 +46,29 @@ export const getProperty = async(id) => {
 
 
 export const bookVisit = async (date, propertyId) => {
-  const token = localStorage.getItem('token');
-  const user = JSON.parse(localStorage.getItem('user')); 
-  const email = user?.email; 
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user"));
+  const email = user?.email;
 
-  
   if (!email) {
+    toast.error("User email not found. Please log in.");
     return;
   }
 
-  const data = {
-    date,
-    propertyId,
-    email, 
-    token,
-  };
-
+  const data = { date, propertyId, email };
 
   try {
-    await bookVisit(data.date, data.propertyId, data.email, data.token);
+    // Replace the infinite recursive call with an API POST request
+    const response = await api.post("/visits/book", data, {
+      headers: {
+        Authorization: `Bearer ${token}`, // If your backend requires auth token
+      },
+    });
     toast.success("Your visit has been booked successfully!");
+    return response.data;
   } catch (error) {
     console.error("Error booking visit:", error);
-    toast.error("Something went wrong, try again please");
+    toast.error("Something went wrong. Please try again.");
+    throw error;
   }
 };
