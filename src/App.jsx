@@ -5,11 +5,11 @@ import Navbar from "./components/navbar/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
 import PropertyComponent from "./components/Property/PropertyComponent";
 import Footer from "./components/footer/Footer";
-import ContactPage from "./components/Contact/ContactPage";
 import logokeys from "./assets/images/logokeys.png";
 import OurServices from "./components/myservices/OurServices";
 import { login } from "./redux/userSlice";  
 import { useDispatch } from "react-redux";
+import ContactComp from "./components/Contact/ContactComp";
 
 
 function App() {
@@ -73,7 +73,7 @@ function App() {
           </div>
           <OurServices />
           <PropertyComponent />
-          <ContactPage />
+          <ContactComp />
           <Footer />
         </div>
       )}

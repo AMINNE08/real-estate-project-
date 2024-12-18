@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/ResetPage.css'; 
 import api from '../shared/api'
 
@@ -64,7 +64,14 @@ export default function ResetPage() {
               required
             />
           </div>
+          <div className='rbtn'>
           <button type="submit" className="buttonR">Reset Password</button>
+          <Link to={"/"}>
+          <button className='buttonR'> Back Home</button>
+          </Link>
+          </div>
+         
+          
         </form>
       </div>
     </div>

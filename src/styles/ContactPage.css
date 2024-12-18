@@ -1,0 +1,92 @@
+/* Set the background image for the entire page */
+.contact-container {
+    background: url("/src/assets/images/ContactUs.png") no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    position: relative;
+    background-size: 86%;
+  }
+  
+  /* Add padding and styling for the form section */
+  .contact-form-section {
+    position: absolute;
+    top: 71%;
+    left: 29%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 11px;
+    border-radius: 10px;
+    width: 418px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    HEIGHT: 312px;
+  }
+
+  
+  .contact-form label {
+    display: block;
+    margin-bottom: 0px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 15PX;
+    DISPLAY: FLEX;
+    JUSTIFY-CONTENT: center;
+    ALIGN-ITEMS: center;
+    MARGIN-TOP: 15PX;
+  }
+  
+  .contact-form textarea {
+    height: 45px;
+    resize: none;
+  }
+  
+  .contact-form .send-button {
+    background-color: #8a73ff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .contact-form .send-button:hover {
+    background-color: #6c5ecf;
+  }
+  
+  .contact-info p {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  
+  .contact-form {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .beu {
+    display: flex;
+        gap: 2px;
+        justify-content: center;
+        align-items: center;
+  }
+
+ 

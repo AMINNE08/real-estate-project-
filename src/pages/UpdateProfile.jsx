@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import api from "../shared/api";
 import "../styles/UpdateProfile.css";
-
+import update from "../assets/images/Update.png"
 const UpdateProfile = () => {
   const userData = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
@@ -64,57 +64,65 @@ const UpdateProfile = () => {
   };
 
   return (
-    <div className="updateprofile">
-      <h2>Update Profile</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleInputChange}
-            disabled={!isEditing}
-            required
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            disabled={!isEditing}
-            required
-          />
-        </label>
-        <label>
-          Phone:
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            disabled={!isEditing}
-          />
-        </label>
-
-        {isEditing ? (
-          <div>
-            <button type="submit">Save</button>
-            <button type="button" onClick={handleCancel}>
-              Cancel
+    <div className="updateprofile-container">
+      <div className="updateprofile-image">
+        <img
+          src={update}
+          alt="Profile"
+        />
+      </div>
+      <div className="updateprofile">
+        <h2>Update Profile</h2>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Username:
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleInputChange}
+              disabled={!isEditing}
+              required
+            />
+          </label>
+          <label>
+            Email:
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              disabled={!isEditing}
+              required
+            />
+          </label>
+          <label>
+            Phone:
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              disabled={!isEditing}
+            />
+          </label>
+          {isEditing ? (
+            <div>
+              <button type="submit">Save</button>
+              <button type="button" onClick={handleCancel}>
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <button type="button" onClick={() => setIsEditing(true)}>
+              Update
             </button>
-          </div>
-        ) : (
-          <button type="button" onClick={() => setIsEditing(true)}>
-            Update
-          </button>
-        )}
-      </form>
+          )}
+        </form>
+      </div>
     </div>
   );
+  
 };
 
 export default UpdateProfile;

@@ -87,11 +87,11 @@ const Navbar = () => {
             )}
           </div>
           <Link
-            to="#help"
-            className={location.hash === "#help" ? "active" : ""}
+            to="/contact"
+            className={location.hash === "/contact" ? "active" : ""}
           >
             <MdOutlineHelpCenter className="nav-icon" />
-            Help
+            Contact
           </Link>
           <Link
             to="#language"

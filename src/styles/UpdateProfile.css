@@ -1,53 +1,67 @@
+/* Container holding the image and form */
+.updateprofile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px; /* Spacing between the image and form */
+  margin: auto;
+  max-width: 900px;
+  margin-top: 50px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 100px;
+}
+
+/* Image Styling */
+.updateprofile-image img {
+  max-width: 250px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Styling */
 .updateprofile {
-    max-width: 500px;
-    margin: auto;
-    padding: 20px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    height: 450px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 20px;
-    gap: 40px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-  }
+  max-width: 500px;
+  flex: 1; /* Allow the form to take remaining space */
+}
 
-  .updateprofile h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.updateprofile h2 {
+  text-align: center;
+}
 
-  }
+.updateprofile form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
+.updateprofile label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
 
-  .updateprofile form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  .updateprofile label {
-    margin-bottom: 20px;
-    font-weight: bold;
-    display: flex;
-    gap: 15px;
-  }
-  .updateprofile input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  .updateprofile button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 258px;
-  }
-  
+.updateprofile input {
+  flex: 1; /* Inputs expand to fill the space */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.updateprofile button {
+  padding: 10px 20px;
+  background-color: #BA68C8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.updateprofile button:hover {
+  background-color: #711781;
+}

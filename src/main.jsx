@@ -19,81 +19,80 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store.js";
 import UpdateProfile from "./pages/UpdateProfile.jsx";
 import BRPage from "./pages/BRPage.jsx";
+import ContactPage from "./pages/ContactPage.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-    <QueryClientProvider client={queryClient}>
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          colorScheme: "light",
-        }}
-      >
-        <BrowserRouter>
-          <Routes>
-            {/* Pages with Layout */}
-            <Route
-              path="/"
-              element={
-                  <App />
-              }
-            />
-            <Route path="/listing">
+      <QueryClientProvider client={queryClient}>
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{
+            colorScheme: "light",
+          }}
+        >
+          <BrowserRouter>
+            <Routes>
+              {/* Pages with Layout */}
+              <Route path="/listing">
+                <Route
+                  index
+                  element={
+                    <Layout>
+                      <Listing />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path=":propertyId"
+                  element={
+                    <Layout>
+                      <Property />
+                    </Layout>
+                  }
+                />
+              </Route>
               <Route
-                index
+                path="/Sell"
                 element={
                   <Layout>
-                    <Listing />
+                    <SellPage />
                   </Layout>
                 }
               />
               <Route
-                path=":propertyId"
+                path="/bRPage"
                 element={
                   <Layout>
-                    <Property />
+                    <BRPage />
                   </Layout>
                 }
               />
-            </Route>
-            <Route
-              path="/Sell"
-              element={
-                <Layout>
-                  <SellPage />
-                </Layout>
-              }
-            />
-             <Route
-              path="/bRPage"
-              element={
-                <Layout>
-                  <BRPage />
-                </Layout>
-              }
-            />
-             <Route
-              path="/updateProfile"
-              element={
-                <Layout>
-                  <UpdateProfile />
-                </Layout>
-              }
-            />
+              <Route
+                path="/updateProfile"
+                element={
+                  <Layout>
+                    <UpdateProfile />
+                  </Layout>
+                }
+              />
 
-            {/* Pages without Layout */}
-            <Route path="/forgot_page" element={<ForgotPage />} />
-            <Route path="/reset-password" element={<ResetPage />} />
-          </Routes>
-        </BrowserRouter>
-        <ToastContainer />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </MantineProvider>
-    </QueryClientProvider>
+              {/* Pages without Layout */}
+              <Route path="/" element={<App />} />
+              <Route path="/forgot_page" element={<ForgotPage />} />
+              <Route path="/reset-password" element={<ResetPage />} />
+              <Route path="/Dashboard" element={<Dashboard />} />
+              <Route path="/contact" element={<ContactPage />} />
+            </Routes>
+          </BrowserRouter>
+          <ToastContainer />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </MantineProvider>
+      </QueryClientProvider>
     </Provider>
   </StrictMode>
 );

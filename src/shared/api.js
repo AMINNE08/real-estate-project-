@@ -17,10 +17,14 @@ export const getAllProperties = async () => {
     const response = await api.get("/residency/allresd", {
       timeout: 10 * 1000,
     });
+    
     if (response.status === 400 || response.status === 500) {
       throw response.data;
+      
     }
+    
     return response.data;
+    
   } catch (error) {
     toast.error("Failed to fetch properties");
     console.error(error);
@@ -69,6 +73,17 @@ export const bookVisit = async (date, propertyId) => {
   } catch (error) {
     console.error("Error booking visit:", error);
     toast.error("Something went wrong. Please try again.");
+    throw error;
+  }
+};
+
+
+export const getAllUsers = async () => {
+  try {
+    const response = await api.get("/users");
+    return response.data; // Assuming the API returns an array of users
+  } catch (error) {
+    toast.error("Failed to fetch users");
     throw error;
   }
 };
