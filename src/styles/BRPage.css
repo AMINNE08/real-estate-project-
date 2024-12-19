@@ -22,7 +22,7 @@
 }
 
 .map-container {
-  height: 400px; /* Adjust height as per your layout */
+  height: 400px; 
   width: 100%;
   border-radius: 8px;
   overflow: hidden;

@@ -501,5 +501,43 @@
 
 .navbar {
 display: flex;
+align-items: center;
+}
 
+.language-switcher {
+  position: relative;
+  cursor: pointer;
+  margin-left: 28px;
+}
+
+.language-icon {
+  font-size: 1.5rem;
+}
+
+.language-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.language-menu button {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.language-menu button:hover {
+  background-color: #6F2480;
+}
+
+.language-icon:hover {
+  color: #6F2480;
 }

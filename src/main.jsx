@@ -10,7 +10,7 @@ import { ToastContainer } from "react-toastify";
 import { ReactQueryDevtools } from "react-query/devtools";
 import "react-toastify/ReactToastify.css";
 import { Property } from "./pages/Property.jsx";
-import Layout from "./components/layout/Layout.jsx";
+import Layout from "./layout/Layout.jsx";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";

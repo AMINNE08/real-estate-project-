@@ -10,9 +10,13 @@ import OurServices from "./components/myservices/OurServices";
 import { login } from "./redux/userSlice";  
 import { useDispatch } from "react-redux";
 import ContactComp from "./components/Contact/ContactComp";
+import "./config/i18n";
+import { useTranslation } from "react-i18next";
+
 
 
 function App() {
+  const { t } = useTranslation();
   const [appPhase, setAppPhase] = useState(() => {
     return sessionStorage.getItem("loaderDisplayed") === "true"
       ? "home"
@@ -69,7 +73,7 @@ function App() {
           <Navbar />
           <HeroSection />
           <div className="serviceshide">
-            <h1>Our Services</h1>
+            <h1>{t("Our Services")}</h1>
           </div>
           <OurServices />
           <PropertyComponent />

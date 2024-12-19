@@ -1,15 +1,18 @@
 import Typewriter from 'typewriter-effect';
 import '../HeroSection/heroSection.css';
 import heroimag from '../../assets/images/Final.png';
+import { useTranslation } from 'react-i18next';
+
 
 const HeroSection = () => {
+  const { t } = useTranslation(); // Import the translation hook
   return (
     <>
       <div className="hero-section">
         <div className="left">
-          <h1>Find Your Dream Property</h1>
+        <h1>{t('Find Your Dream Property')}</h1>
           <h2 className="trust-section">
-            Your <span className="trustword">Trusted</span> Partner in Real Estate
+            {t('Your')} <span className="trustword">{t('Trusted')}</span> {t('Partner in Real Estate')}
             <svg
               className="blob-shape"
               viewBox="0 0 200 200"
@@ -23,11 +26,15 @@ const HeroSection = () => {
             </svg>
           </h2>
           <h2 className="typewriter-line">
-            Let us help you{' '}
-            <span className="typewriter">
+          {t('Let us help you')}{' '}
+          <span className="typewriter">
               <Typewriter
                 options={{
-                  strings: ['buy', 'sell', 'rent'],
+                  strings: [
+                    t('buy'),
+                    t('sell'),
+                    t('rent'),
+                  ],
                   autoStart: true,
                   loop: true,
                   deleteSpeed: 50,
@@ -39,7 +46,7 @@ const HeroSection = () => {
           
         </div>
         <div className="right">
-          <img src={heroimag} alt="Property" className="floating-image" />
+          <img src={heroimag} alt={t('Property')} className="floating-image" />
         </div>
       </div>
     </>

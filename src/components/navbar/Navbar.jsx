@@ -15,21 +15,26 @@ import noAvatar from "../../assets/images/noavatar.jpg";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { MdDashboard } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false); // State for language menu
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const role = user?.user?.role; // Access the role properly
   console.log("User role in Navbar:", role);
-  const username = user?.username || role ;
+  const username = user?.username || role;
   const location = useLocation(); // To track the current path
 
-
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -57,14 +62,14 @@ const Navbar = () => {
         <nav className={`navbar ${isActive ? "active" : ""}`}>
           <Link to="/" className={location.pathname === "/" ? "active" : ""}>
             <IoHomeOutline className="nav-icon" id="homeelem" />
-            Home
+            {t("Home")}
           </Link>
           <Link
             to="/listing"
             className={location.pathname === "/listing" ? "active" : ""}
           >
             <RiCheckboxMultipleBlankFill className="nav-icon" />
-            Listing
+            {t("Listing")}
           </Link>
           <div
             className={`dropdown-wrapper ${
@@ -76,7 +81,7 @@ const Navbar = () => {
               onClick={() => setShowServicesDropdown(!showServicesDropdown)}
             >
               <MdMiscellaneousServices className="nav-icon" />
-              Services
+              {t("Services")}
             </Link>
             {showServicesDropdown && (
               <div
@@ -84,9 +89,9 @@ const Navbar = () => {
                   isActive ? "responsive-dropdown" : "desktop-dropdown"
                 }`}
               >
-                <Link to="/bRPage">Buy</Link>
-                <Link to="/bRPage">Rent</Link>
-                <Link to="/Sell">Sell</Link>
+                <Link to="/bRPage">{t("Buy")}</Link>
+                <Link to="/bRPage">{t("Rent")}</Link>
+                <Link to="/Sell">{t("Sell")}</Link>
               </div>
             )}
           </div>
@@ -95,14 +100,7 @@ const Navbar = () => {
             className={location.hash === "/contact" ? "active" : ""}
           >
             <MdOutlineHelpCenter className="nav-icon" />
-            Contact
-          </Link>
-          <Link
-            to="#language"
-            className={location.hash === "#language" ? "active" : ""}
-          >
-            <GrLanguage className="nav-icon" />
-            Language
+            {t("Contact")}
           </Link>
 
           {role === "admin" && (
@@ -111,9 +109,22 @@ const Navbar = () => {
               className={location.hash === "/dashboard" ? "active" : ""}
             >
               <MdDashboard className="nav-icon" />
-              Dashboard
+              {t("Dashboard")}
             </Link>
           )}
+
+          <div className="language-switcher">
+            <GrLanguage
+              className="language-icon"
+              onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+            />
+            {isLangMenuOpen && (
+              <div className="language-menu">
+                <button onClick={() => changeLanguage("en")}>EN</button>
+                <button onClick={() => changeLanguage("fr")}>FR</button>
+              </div>
+            )}
+          </div>
         </nav>
       </div>
       <div className="cont-right">
@@ -128,8 +139,8 @@ const Navbar = () => {
             <span className="username">{username}</span>
             {isDropdownOpen && (
               <div className="dropdown-menu">
-                <Link to="/updateProfile">Update Profile</Link>
-                <button onClick={handleLogout}>Logout</button>
+                <Link to="/updateProfile">{t("Update Profile")}</Link>
+                <button onClick={handleLogout}>{t("Logout")}</button>
               </div>
             )}
           </div>
@@ -138,7 +149,7 @@ const Navbar = () => {
             className="logbutton responsive-logbutton"
             onClick={() => setIsLoginOpen(true)}
           >
-            Login
+            {t("Login")}
           </button>
         )}
         {isLoginOpen && <Login setOpenModal={setIsLoginOpen} />}{" "}
