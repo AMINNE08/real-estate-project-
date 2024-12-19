@@ -105,3 +105,7 @@
         width: 50%; 
     }
 }
+
+.welcome-message h1 {
+    font-size: 5vw;
+}
