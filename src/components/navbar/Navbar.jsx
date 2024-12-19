@@ -14,20 +14,27 @@ import { useSelector, useDispatch } from "react-redux";
 import noAvatar from "../../assets/images/noavatar.jpg";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import { MdDashboard } from "react-icons/md";
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const username = user?.username || "User";
+  const role = user?.user?.role; // Access the role properly
+  console.log("User role in Navbar:", role);
+  const username = user?.username || role ;
   const location = useLocation(); // To track the current path
+
+
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
+    console.log("Stored user from localStorage:", storedUser); // Check stored user
+    console.log("User from Redux state:", user); // Check Redux state
     if (storedUser && !user) {
       dispatch({ type: "user/login", payload: storedUser });
     }
@@ -35,9 +42,9 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
-    dispatch({ type: "user/logout" }); 
-    toast.success("Logged out successfully!"); 
-    navigate("/"); 
+    dispatch({ type: "user/logout" });
+    toast.success("Logged out successfully!");
+    navigate("/");
   };
 
   return (
@@ -48,10 +55,7 @@ const Navbar = () => {
       </div>
       <div className={`nav-bg ${isActive ? "active" : ""}`}>
         <nav className={`navbar ${isActive ? "active" : ""}`}>
-          <Link
-            to="/"
-            className={location.pathname === "/" ? "active" : ""}
-          >
+          <Link to="/" className={location.pathname === "/" ? "active" : ""}>
             <IoHomeOutline className="nav-icon" id="homeelem" />
             Home
           </Link>
@@ -100,6 +104,16 @@ const Navbar = () => {
             <GrLanguage className="nav-icon" />
             Language
           </Link>
+
+          {role === "admin" && (
+            <Link
+              to="/dashboard"
+              className={location.hash === "/dashboard" ? "active" : ""}
+            >
+              <MdDashboard className="nav-icon" />
+              Dashboard
+            </Link>
+          )}
         </nav>
       </div>
       <div className="cont-right">
@@ -114,7 +128,6 @@ const Navbar = () => {
             <span className="username">{username}</span>
             {isDropdownOpen && (
               <div className="dropdown-menu">
-                <Link to="/wishlist">Wishlist</Link>
                 <Link to="/updateProfile">Update Profile</Link>
                 <button onClick={handleLogout}>Logout</button>
               </div>

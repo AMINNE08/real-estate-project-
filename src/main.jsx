@@ -21,6 +21,8 @@ import UpdateProfile from "./pages/UpdateProfile.jsx";
 import BRPage from "./pages/BRPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import ProtectedRoute from "./components/admin/ProtectedRoute.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 const queryClient = new QueryClient();
 
@@ -81,12 +83,26 @@ createRoot(document.getElementById("root")).render(
                 }
               />
 
+              <Route
+                path="/Dashboard"
+                element={
+                  <ProtectedRoute requiredRole="admin">
+                  <Layout>
+                    <Dashboard />
+                  </Layout>
+                  </ProtectedRoute>
+
+
+                }
+              />
+
               {/* Pages without Layout */}
               <Route path="/" element={<App />} />
               <Route path="/forgot_page" element={<ForgotPage />} />
               <Route path="/reset-password" element={<ResetPage />} />
-              <Route path="/Dashboard" element={<Dashboard />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+
             </Routes>
           </BrowserRouter>
           <ToastContainer />
