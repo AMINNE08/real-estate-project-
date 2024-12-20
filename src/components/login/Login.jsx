@@ -88,9 +88,9 @@ export default function Login({ setOpenModal }) {
   };
 
   const handleGoogleLogin = () => {
-    const googleAuthURL = "http://localhost:3000/api/v1/auth/google";
+    const googleAuthURL = "https://yaqin-backend.onrender.com/api/v1/auth/google";
     console.log("Redirecting to:", googleAuthURL);
-    window.location.href = "http://localhost:3000/api/v1/auth/google"; 
+    window.location.href = "https://yaqin-backend.onrender.com/api/v1/auth/google"; 
 
   };
 

@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/api/v1", 
+  baseURL: "https://yaqin-backend.onrender.com/api/v1", 
   withCredentials: true, // Ensures cookies are sent
 
 });
